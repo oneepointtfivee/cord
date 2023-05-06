@@ -20,4 +20,9 @@
 #define A_SHARP_KEY_PIN 40
 #define B_KEY_PIN 41
 
+// VOLUME LEDS
+#define VOLUME_GREEN_LED_PIN 40
+#define VOLUME_ORANGE_LED_PIN 41
+#define VOLUME_RED_LED_PIN 42
+
 #endif
