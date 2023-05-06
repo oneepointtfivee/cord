@@ -1,0 +1,23 @@
+#ifndef PINMAP_H
+#define PINMAP_H
+
+// ACTION BUTTONS
+#define SCALES_BUTTON_PIN 50
+#define INSTRUMENTS_BUTTON_PIN 51
+#define BACK_BUTTON_PIN 52
+
+// KEYS BUTTONS
+#define C_KEY_PIN 30
+#define C_SHARP_KEY_PIN 31
+#define D_KEY_PIN 32
+#define D_SHARP_KEY_PIN 33
+#define E_KEY_PIN 34
+#define F_KEY_PIN 35
+#define F_SHARP_KEY_PIN 36
+#define G_KEY_PIN 37
+#define G_SHARP_KEY_PIN 38
+#define A_KEY_PIN 39
+#define A_SHARP_KEY_PIN 40
+#define B_KEY_PIN 41
+
+#endif
