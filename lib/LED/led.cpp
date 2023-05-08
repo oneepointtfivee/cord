@@ -5,23 +5,24 @@ namespace Cord {
 
   LED::LED(uint8_t _digitalPin) {
     _instance = this;
+    _instance->_digitalPin = _digitalPin;
 
     pinMode(_digitalPin, OUTPUT);
   }
 
   void LED::turnOn() {
-    digitalWrite(_digitalPin, HIGH);
+    digitalWrite(this->_digitalPin, HIGH);
   }
 
   void LED::turnOff() {
-    digitalWrite(_digitalPin, LOW);
+    digitalWrite(this->_digitalPin, LOW);
   }
 
   bool LED::isOn() {
-    return digitalRead(_digitalPin) == HIGH;
+    return digitalRead(this->_digitalPin) == HIGH;
   }
 
   bool LED::isOff() {
-    return digitalRead(_digitalPin) == LOW;
+    return digitalRead(this->_digitalPin) == LOW;
   }
 }

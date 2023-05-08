@@ -5,18 +5,16 @@ namespace Cord {
 
   Button::Button(uint8_t _digitalPin) {
     _instance = this;
+    this->_digitalPin = _digitalPin;
 
-    pinMode(_digitalPin, INPUT_PULLUP);
+    pinMode(_digitalPin, INPUT);
   }
 
   bool Button::isPressed() {
-    _buttonState = digitalRead(_digitalPin);
+    _buttonState = digitalRead(this->_digitalPin);
 
     if (_buttonState != _lastButtonState) {
-
-      if (_buttonState == LOW) {
-        return true;
-      }
+      return (_buttonState == HIGH);
     }
 
     _lastButtonState = _buttonState;

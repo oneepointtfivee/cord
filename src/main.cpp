@@ -21,9 +21,9 @@ void setup() {
 }
 
 void loop() {
-  // if (scalesButton->isPressed()) {
-  //   BufferedOut.println("Scales button pressed");
-  // }
-
-  // greenVolumeLED->turnOn();
+  if (scalesButton->isPressed()) {
+    greenVolumeLED->turnOn();
+  } else {
+    greenVolumeLED->turnOff();
+  }
 }
