@@ -15,12 +15,19 @@ const byte MODE_SCALES = 1;
 const byte MODE_INSTRUMENTS = 2;
 uint8_t selectedMode = MODE_HOME;
 
+const byte VOLUME_LOW = 0;
+const byte VOLUME_MEDIUM = 1;
+const byte VOLUME_HIGH = 2;
+uint8_t selectedVolume = VOLUME_LOW;
+
 // Init
 Cord::Button *scalesButton;
 Cord::Button *instrumentsButton;
 Cord::Button *backButton;
 
 Cord::LED *greenVolumeLED;
+Cord::LED *orangeVolumeLED;
+Cord::LED *redVolumeLED;
 
 void setup() {
   // Serial + Buffer
@@ -35,6 +42,8 @@ void setup() {
   backButton = new Cord::Button(BACK_BUTTON_PIN);
 
   greenVolumeLED = new Cord::LED(VOLUME_GREEN_LED_PIN);
+  orangeVolumeLED = new Cord::LED(VOLUME_ORANGE_LED_PIN);
+  redVolumeLED = new Cord::LED(VOLUME_RED_LED_PIN);
 }
 
 void loop() {
@@ -44,5 +53,28 @@ void loop() {
     selectedMode = MODE_INSTRUMENTS;
   } else if (backButton->isPressed()) {
     selectedMode = MODE_HOME;
+  }
+
+  switch (selectedVolume) {
+    case VOLUME_LOW:
+      greenVolumeLED->turnOff();
+      orangeVolumeLED->turnOff();
+      redVolumeLED->turnOn();
+      break;
+
+    case VOLUME_MEDIUM: 
+      greenVolumeLED->turnOff();
+      orangeVolumeLED->turnOn();
+      redVolumeLED->turnOn();
+      break;
+
+    case VOLUME_HIGH:
+      greenVolumeLED->turnOn();
+      orangeVolumeLED->turnOn();
+      redVolumeLED->turnOn();
+      break;
+      
+    default:
+      break;
   }
 }
