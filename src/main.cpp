@@ -2,7 +2,9 @@
 #include <BufferedOutput.h> // this stops 'prints' from blocking the arduino loop
 
 #include "pinmap.h"
+
 #include "button.h"
+#include "encoder.h"
 #include "led.h"
 
 // Example of using BufferedOutput to release bytes when there is space in the Serial Tx buffer, extra buffer size 80
@@ -44,6 +46,10 @@ Cord::Button *gSharpKey;
 Cord::Button *aKey;
 Cord::Button *aSharpKey;
 Cord::Button *bKey;
+
+// Encoders
+Cord::Encoder *selectionEncoder;
+Cord::Encoder *volumeEncoder;
 
 void setup() {
   // Serial + Buffer
@@ -142,8 +148,14 @@ void handleKeyPress() {
   } 
 }
 
+void handleSelectionEncoder() {
+  BufferedOut.println(selectionEncoder->getPosition());
+  BufferedOut.println(selectionEncoder->isPressed());
+}
+
 void loop() {
   adjustVolume();
   selectMode();
   handleKeyPress();
+  handleSelectionEncoder();
 }
