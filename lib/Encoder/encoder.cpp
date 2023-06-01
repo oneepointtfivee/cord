@@ -38,6 +38,6 @@ namespace Cord {
   }
 
   bool Encoder::isPressed() {
-    return digitalRead(_encButtonPin);
+    return !digitalRead(_encButtonPin);
   }
 }

@@ -81,6 +81,10 @@ void setup() {
   aKey = new Cord::Button(A_KEY_PIN);
   aSharpKey = new Cord::Button(A_SHARP_KEY_PIN);
   bKey = new Cord::Button(B_KEY_PIN);
+
+  // Encoders
+  selectionEncoder = new Cord::Encoder(SELECTION_ENCODER_PIN_A, SELECTION_ENCODER_PIN_B, SELECTION_ENCODER_BUTTON_PIN);
+  volumeEncoder = new Cord::Encoder(VOLUME_ENCODER_PIN_A, VOLUME_ENCODER_PIN_B, 0);
 }
 
 void adjustVolume() {
@@ -150,7 +154,7 @@ void handleKeyPress() {
 
 void handleSelectionEncoder() {
   BufferedOut.println(selectionEncoder->getPosition());
-  BufferedOut.println(selectionEncoder->isPressed());
+  delay(100);
 }
 
 void loop() {
